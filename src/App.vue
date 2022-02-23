@@ -25,31 +25,60 @@
  <!-- ---------- -->
 
 
-    <v-navigation-drawer permanent app style="margin-top: 70px; border: 1px solid black">
-      <v-divider></v-divider>
-      <v-list
-        dense
-        nav
-      >
-      <router-link to="/" class="list-item">
+         <v-navigation-drawer permanent app style="margin-top: 70px; border: 1px solid black">
+        <v-divider></v-divider>
+        <v-list
+          dense
+          nav
+        >
+       <router-link to="/" class="list-item">
         <v-list-item  class="list-item">
-          <v-list-item-icon>
-            <v-icon> mdi-view-dashboard </v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item-content>
+           <v-list-item>
+        <v-list-item-icon>
+          <v-icon>mdi-home</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-title>Home</v-list-item-title>
+      </v-list-item>
         </v-list-item>
         </router-link>
 
         <router-link to="/about" class="list-item">
         <v-list-item >
-          <v-list-item-icon>
-            <v-icon> mdi-account-details</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>Adminictracja</v-list-item-title>
-          </v-list-item-content>
+          <v-list-group
+        :value="true"
+        prepend-icon="mdi-account-circle"
+      >
+        <template v-slot:activator>
+          <v-list-item-title>Users</v-list-item-title>
+        </template>
+
+        <v-list-group
+          :value="false"
+          
+         
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>Admin</v-list-item-title>
+            </v-list-item-content>
+          </template>
+
+          <v-list-item
+            v-for="([title, icon], i) in admins"
+            :key="i"
+            link
+          >
+            <v-list-item-title v-text="title"></v-list-item-title>
+
+            <v-list-item-icon>
+              <v-icon v-text="icon"></v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
+
+        
+      </v-list-group>
         </v-list-item>
         </router-link>
 
