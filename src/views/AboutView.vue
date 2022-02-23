@@ -1,61 +1,54 @@
 <template>
-   <v-card
-    class="mx-auto"
-    width="200"
-    style="margin-left: 500px;"
-  >
-    <v-list>
-      <v-list-item>
-        <v-list-item-icon>
-          <v-icon>mdi-home</v-icon>
-        </v-list-item-icon>
 
-        <v-list-item-title>Home</v-list-item-title>
-      </v-list-item>
 
-      <v-list-group
-        :value="true"
-        prepend-icon="mdi-account-circle"
-      >
-        <template v-slot:activator>
-          <v-list-item-title>Users</v-list-item-title>
-        </template>
+  <div class="hello">
+    <table class="users">
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+      <tr v-for="user in users" :key="user">
 
-        <v-list-group
-          :value="false"
-          
-         
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title>Admin</v-list-item-title>
-            </v-list-item-content>
-          </template>
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+       
+      </tr>
+    </table>
+  </div>
 
-          <v-list-item
-            v-for="([title, icon], i) in admins"
-            :key="i"
-            link
-          >
-            <v-list-item-title v-text="title"></v-list-item-title>
+  
 
-            <v-list-item-icon>
-              <v-icon v-text="icon"></v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-        </v-list-group>
 
-        
-      </v-list-group>
-    </v-list>
-  </v-card>
 </template>
 
 <script>
-  export default {
-    data: () => ({
+import {mapState} from "vuex";
+export default {
+  name: "hello-world",
+  computed: mapState(['users']),
+  created() {
+    this.$store.dispatch('loadUsers');
+  },
+  data(){
+    return{
+      headers: [
+        {text: "id", value: "id"}
       
-
-    }),
+      ]
+    }
   }
+  };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+table {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+</style>

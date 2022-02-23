@@ -1,32 +1,11 @@
 <template>
- 
-  <v-card class="overflow-hidden" style="border-bottom: 1px solid black;">
-    <v-app-bar
-      absolute
-      color="white"
-      elevate-on-scroll
-      scroll-target="#scrolling-techniques-7"
-      clipped
-      
-    >
-        <v-toolbar-title p-2>NXOBrand</v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar >
-    <v-sheet
-      id="scrolling-techniques-7"
-      class="overflow-y-auto"
-      max-height="600"
-    >
-      <v-container style="height: 70px;">
-      </v-container>
-    </v-sheet>
- 
+
 
  <!-- ---------- -->
-
+<v-app>
 
          <v-navigation-drawer permanent app style="margin-top: 70px; border: 1px solid black">
-        <v-divider></v-divider>
+        
         <v-list
           dense
           nav
@@ -55,8 +34,6 @@
 
         <v-list-group
           :value="false"
-          
-         
         >
           <template v-slot:activator>
             <v-list-item-content>
@@ -70,25 +47,18 @@
             link
           >
             <v-list-item-title v-text="title"></v-list-item-title>
-
             <v-list-item-icon>
               <v-icon v-text="icon"></v-icon>
             </v-list-item-icon>
           </v-list-item>
         </v-list-group>
-
-        
-      </v-list-group>
+        </v-list-group>
         </v-list-item>
         </router-link>
-
-
-
-
       </v-list>
     </v-navigation-drawer>
  <router-view></router-view>
-  </v-card>
+  </v-app>
  
 
  
@@ -121,7 +91,7 @@
 
   body{
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-    font-size: 2rem;
+    
   }
 
   .list-item{
