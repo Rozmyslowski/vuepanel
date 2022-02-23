@@ -1,55 +1,102 @@
 <template>
-  <v-app>
+ 
+  <v-card class="overflow-hidden" style="border-bottom: 1px solid black;">
     <v-app-bar
-      app
-      color="dark"
-      dark
+      absolute
+      color="white"
+      elevate-on-scroll
+      scroll-target="#scrolling-techniques-7"
+      clipped
+      
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="20"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
+        <v-toolbar-title p-2>NXOBrand</v-toolbar-title>
       <v-spacer></v-spacer>
+    </v-app-bar >
+    <v-sheet
+      id="scrolling-techniques-7"
+      class="overflow-y-auto"
+      max-height="600"
+    >
+      <v-container style="height: 70px;">
+      </v-container>
+    </v-sheet>
+ 
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+ <!-- ---------- -->
+
+
+    <v-navigation-drawer permanent app style="margin-top: 70px; border: 1px solid black">
+      <v-divider></v-divider>
+      <v-list
+        dense
+        nav
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+      <router-link to="/" class="list-item">
+        <v-list-item  class="list-item">
+          <v-list-item-icon>
+            <v-icon> mdi-view-dashboard </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        </router-link>
 
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+        <router-link to="/about" class="list-item">
+        <v-list-item >
+          <v-list-item-icon>
+            <v-icon> mdi-account-details</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Adminictracja</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        </router-link>
+
+
+
+
+      </v-list>
+    </v-navigation-drawer>
+ <router-view></router-view>
+  </v-card>
+ 
+
+ 
+
+  
 </template>
 
+
 <script>
-
-export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
-};
+  export default {
+    data () {
+      return {
+        right: null,
+      }
+    },
+  }
 </script>
+
+<style>
+
+  *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html{
+    font-size: 62.5%;
+  }
+
+  body{
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    font-size: 2rem;
+  }
+
+  .list-item{
+    text-decoration: none;
+  }
+
+</style>
